@@ -1,0 +1,66 @@
+# Finanzas David — Reglas del proyecto
+
+## Qué es este proyecto
+App web personal de finanzas para David Henriquez (Santo Domingo, RD).
+Lee datos de un Google Sheet via Apps Script (GET requests).
+Stack: Next.js 14 App Router, TypeScript, Tailwind CSS, Recharts, Lucide React.
+
+## Fuente de datos
+Todos los datos vienen de llamadas GET al Apps Script.
+El archivo de llamadas está en src/lib/api.ts.
+NUNCA inventar datos — siempre usar las funciones de api.ts.
+
+## Moneda y formato
+- Moneda: pesos dominicanos (RD$)
+- Formato números: RD$ + número con comas (ej: RD$10,500)
+- Fechas: formato español (ej: mayo 2026)
+- Idioma de la UI: español
+
+## Estructura de datos del Sheet
+
+Transacciones:
+{ id, fecha, descripcion, tipo: "Ingreso"|"Gasto", monto: number, categoria: string, mes: "yyyy-MM" }
+
+Metas:
+{ id, nombre, tipo: "Acumulada"|"Recurrente", objetivo: number, fecha_limite: string, actual: number, notas: string }
+
+Patrimonio:
+{ total: number, cuentas: [{cuenta, tipo, saldo, notas}], historial: [{fecha, total}], ultima_actualizacion: string }
+
+Alertas:
+{ categoria, gastado: number, limite: number, porcentaje: number, nivel: "ok"|"atencion"|"critico" }
+
+ResumenMes:
+{ mes, ingresos: number, gastos: number, flujo_neto: number, tasa_ahorro: number }
+
+CategoriasMes:
+{ mes, categorias: [{nombre, total}] }
+
+MesAMes:
+{ meses: [{mes, ingresos, gastos, flujo}] }
+
+## Diseño
+- Colores principales: #1F4E78 (azul oscuro), blanco, gris claro
+- Bordes: 1px solid #e5e7eb
+- Rounded: rounded-xl para cards, rounded-lg para elementos internos
+- Tipografía: Inter (default de Tailwind)
+- Mobile-first: bottom navigation en mobile, sidebar en desktop
+- Sin gradientes ni sombras exageradas — diseño limpio y flat
+- Cards con fondo blanco, borde sutil, padding generoso
+
+## Componentes que existen
+src/components/ui/MetricCard.tsx
+src/components/ui/AlertItem.tsx
+src/components/ui/ProgressBar.tsx
+src/components/ui/BottomNav.tsx
+src/components/charts/BarChart.tsx
+src/components/charts/LineChart.tsx
+
+## Reglas de código
+- Siempre TypeScript con tipos explícitos
+- Siempre loading states (skeleton) mientras cargan datos
+- Siempre error states si falla la API
+- Usar async/await con try/catch
+- Componentes del servidor (Server Components) para fetching de datos
+- Componentes del cliente solo cuando necesiten interactividad (useState, etc.)
+- No usar useEffect para fetching — usar Server Components
