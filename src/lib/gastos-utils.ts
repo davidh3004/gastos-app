@@ -78,7 +78,7 @@ export function buildCategoriasMesFromTransacciones(
   }
 
   const categorias = [...acumulado.entries()]
-    .map(([nombre, total]) => ({ nombre, total: Math.round(total) }))
+    .map(([nombre, total]) => ({ nombre, total }))
     .sort((a, b) => b.total - a.total);
 
   return { mes, categorias };
