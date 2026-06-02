@@ -61,7 +61,8 @@ export function formatCurrency(amount: number): string {
   const isNegative = amount < 0;
   const absolute = Math.abs(amount);
   const formatted = absolute.toLocaleString("en-US", {
-    maximumFractionDigits: 0,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 3,
   });
 
   return isNegative ? `- RD$ ${formatted}` : `RD$ ${formatted}`;
