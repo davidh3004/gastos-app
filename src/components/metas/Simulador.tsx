@@ -86,10 +86,10 @@ export function Simulador({ metasAcumuladas }: SimuladorProps) {
               step={STEP_AHORRO}
               value={ahorroMensual}
               onChange={(e) => setAhorroMensual(Number(e.target.value))}
-              className="h-2 w-full cursor-pointer accent-[#1F4E78] dark:accent-primary"
+              className="h-2 w-full cursor-pointer accent-primary"
               aria-label="Ahorro mensual"
             />
-            <span className="shrink-0 text-sm font-semibold tabular-nums text-[#1F4E78] dark:text-primary">
+            <span className="shrink-0 text-sm font-semibold tabular-nums text-primary">
               {formatCurrency(ahorroMensual)}
             </span>
           </div>
@@ -157,7 +157,7 @@ export function Simulador({ metasAcumuladas }: SimuladorProps) {
                       />
                     )}
                     <span
-                      className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#1F4E78] bg-white text-[10px] font-bold text-[#1F4E78] dark:border-primary dark:bg-surface dark:text-primary"
+                      className="relative z-10 flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-white text-[10px] font-bold text-primary dark:bg-surface"
                       aria-hidden
                     >
                       {paso.porcentaje}%

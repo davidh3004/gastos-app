@@ -276,7 +276,7 @@ export default function AgregarPage() {
               </p>
             )}
             {!categorizando && categoriaSugerida && descripcion.trim().length > 3 && (
-              <span className="mt-2 inline-flex rounded-lg border border-[#1F4E78]/30 bg-[#1F4E78]/5 px-2 py-0.5 text-xs font-medium text-[#1F4E78] dark:border-primary/40 dark:bg-primary/10 dark:text-primary">
+              <span className="mt-2 inline-flex rounded-lg border border-primary/30 bg-primary/5 px-2 py-0.5 text-xs font-medium text-primary">
                 Sugerida: {categoriaSugerida}
               </span>
             )}
@@ -338,7 +338,7 @@ export default function AgregarPage() {
           <button
             type="submit"
             disabled={guardando}
-            className="flex w-full min-h-12 items-center justify-center gap-2 rounded-xl bg-[#1F4E78] px-4 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 dark:bg-primary"
+            className="flex w-full min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {guardando ? (
               <>

@@ -35,7 +35,7 @@ function TypingIndicator() {
       {[0, 150, 300].map((delay) => (
         <span
           key={delay}
-          className="h-2 w-2 animate-bounce rounded-full bg-gray-400 dark:bg-muted"
+          className="h-2 w-2 animate-typing-dot rounded-full bg-gray-400 dark:bg-muted"
           style={{ animationDelay: `${delay}ms` }}
         />
       ))}
@@ -192,7 +192,7 @@ export function ChatInterface({
               className={clsx(
                 "max-w-[85%] rounded-2xl px-4 py-3 sm:max-w-[75%]",
                 msg.role === "user"
-                  ? "rounded-br-md bg-[#1F4E78] text-white dark:bg-primary"
+                  ? "rounded-br-md bg-primary text-white"
                   : "rounded-bl-md bg-gray-100 text-gray-900 dark:bg-surface-muted dark:text-foreground"
               )}
             >
@@ -251,7 +251,7 @@ export function ChatInterface({
           <button
             type="submit"
             disabled={escribiendo || !input.trim()}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#1F4E78] text-white transition-opacity hover:opacity-90 disabled:opacity-40 dark:bg-primary"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-white transition-opacity hover:opacity-90 disabled:opacity-40"
             aria-label="Enviar mensaje"
           >
             <Send className="h-5 w-5" aria-hidden />

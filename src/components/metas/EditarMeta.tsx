@@ -153,7 +153,7 @@ export function EditarMeta({ metas: metasIniciales }: EditarMetaProps) {
                   onClick={() =>
                     abierta ? cerrarEdicion() : abrirEdicion(meta)
                   }
-                  className="rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-[#1F4E78] transition-colors hover:bg-gray-50 dark:border-border dark:text-primary dark:hover:bg-surface-muted"
+                  className="rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-primary transition-colors hover:bg-gray-50 dark:border-border dark:hover:bg-surface-muted"
                 >
                   {abierta ? "Cancelar" : "Editar"}
                 </button>
@@ -260,7 +260,7 @@ export function EditarMeta({ metas: metasIniciales }: EditarMetaProps) {
                   <button
                     type="submit"
                     disabled={guardando}
-                    className="rounded-lg bg-[#1F4E78] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50 dark:bg-primary"
+                    className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
                   >
                     {guardando ? "Guardando…" : "Guardar"}
                   </button>
