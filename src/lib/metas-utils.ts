@@ -78,7 +78,10 @@ export function getEstadoMeta(
   }
 
   const mesesProyeccion = calcularMesesProyeccion(meta, ahorroMensual);
-  const limite = new Date(meta.fecha_limite);
+  const _lf = meta.fecha_limite.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const limite = _lf
+    ? new Date(+_lf[1], +_lf[2] - 1, +_lf[3])
+    : new Date(meta.fecha_limite);
 
   if (
     !Number.isNaN(limite.getTime()) &&
