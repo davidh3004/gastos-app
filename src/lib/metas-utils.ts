@@ -19,7 +19,10 @@ const MESES_ES = [
 ] as const;
 
 export function formatFechaLimite(fecha: string): string {
-  const parsed = new Date(fecha);
+  const soloFecha = fecha.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const parsed = soloFecha
+    ? new Date(+soloFecha[1], +soloFecha[2] - 1, +soloFecha[3])
+    : new Date(fecha);
   if (Number.isNaN(parsed.getTime())) {
     return fecha;
   }
