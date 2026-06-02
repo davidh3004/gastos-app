@@ -62,7 +62,7 @@ export function formatCurrency(amount: number): string {
   const absolute = Math.abs(amount);
   const formatted = absolute.toLocaleString("en-US", {
     minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    maximumFractionDigits: 3,
   });
 
   return isNegative ? `- RD$ ${formatted}` : `RD$ ${formatted}`;
