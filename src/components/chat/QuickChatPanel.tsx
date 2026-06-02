@@ -98,7 +98,7 @@ export function QuickChatPanel({ abierto, onCerrar }: QuickChatPanelProps) {
             <Link
               href="/chat"
               onClick={onCerrar}
-              className="flex h-9 items-center gap-1 rounded-lg px-2 text-xs font-medium text-[#1F4E78] hover:bg-gray-100 dark:text-primary dark:hover:bg-surface-muted"
+              className="flex h-9 items-center gap-1 rounded-lg px-2 text-xs font-medium text-primary hover:bg-gray-100 dark:hover:bg-surface-muted"
             >
               <ExternalLink className="h-3.5 w-3.5" aria-hidden />
               <span className="hidden sm:inline">Pantalla completa</span>
@@ -127,7 +127,7 @@ export function QuickChatPanel({ abierto, onCerrar }: QuickChatPanelProps) {
               <button
                 type="button"
                 onClick={() => void cargarContexto()}
-                className="rounded-lg bg-[#1F4E78] px-3 py-1.5 text-sm text-white dark:bg-primary"
+                className="rounded-lg bg-primary px-3 py-1.5 text-sm text-white"
               >
                 Reintentar
               </button>

@@ -99,7 +99,7 @@ export function AlertsBell() {
         onClick={togglePanel}
         className={clsx(
           "relative flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-700 transition-colors hover:bg-gray-50 dark:border-border dark:bg-surface dark:text-foreground dark:hover:bg-surface-muted",
-          abierto && "ring-2 ring-[#1F4E78]/25 dark:ring-primary/25"
+          abierto && "ring-2 ring-primary/25"
         )}
         aria-label={
           activas.length > 0

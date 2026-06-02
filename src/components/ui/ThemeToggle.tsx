@@ -19,7 +19,7 @@ export function ThemeToggle({ className, showLabel = false }: ThemeToggleProps) 
       onClick={toggleTheme}
       className={clsx(
         "flex h-10 min-w-10 items-center justify-center gap-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-900 transition-colors hover:bg-white dark:border-border dark:bg-surface-muted dark:text-foreground dark:hover:bg-surface",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F4E78]/40 dark:focus-visible:ring-primary/40",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40",
         showLabel && "px-3",
         className
       )}
@@ -37,7 +37,7 @@ export function ThemeToggle({ className, showLabel = false }: ThemeToggleProps) 
       ) : isDark ? (
         <Sun className="h-5 w-5 text-amber-400" aria-hidden />
       ) : (
-        <Moon className="h-5 w-5 text-[#1F4E78]" aria-hidden />
+        <Moon className="h-5 w-5 text-primary" aria-hidden />
       )}
       {showLabel && mounted && (
         <span className="text-sm font-medium">

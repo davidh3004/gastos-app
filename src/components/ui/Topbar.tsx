@@ -34,7 +34,7 @@ export function Topbar() {
       <div className="mx-auto flex h-full max-w-[1200px] items-center justify-between gap-4 px-6 lg:px-8">
         <Link
           href="/"
-          className="flex items-center gap-2 font-semibold text-[#1F4E78] dark:text-primary"
+          className="flex items-center gap-2 font-semibold text-primary"
         >
           <TrendingUp className="h-5 w-5" aria-hidden />
           <span>Finanzas</span>
@@ -53,7 +53,7 @@ export function Topbar() {
                       className={clsx(
                         "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                         isActive
-                          ? "bg-gray-100 text-[#1F4E78] dark:bg-surface-muted dark:text-primary"
+                          ? "bg-gray-100 text-primary dark:bg-surface-muted"
                           : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-muted dark:hover:bg-surface-muted dark:hover:text-foreground"
                       )}
                       aria-current={isActive ? "page" : undefined}

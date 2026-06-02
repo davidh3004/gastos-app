@@ -51,7 +51,7 @@ export function BottomNav() {
                 className={clsx(
                   "flex flex-col items-center gap-0.5 px-2 py-2.5 text-xs font-medium transition-colors",
                   isActive
-                    ? "text-[#1F4E78] dark:text-primary"
+                    ? "text-primary"
                     : "text-gray-500 dark:text-muted"
                 )}
                 aria-current={isActive ? "page" : undefined}
