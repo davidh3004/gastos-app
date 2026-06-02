@@ -194,7 +194,7 @@ export function getRecomendacionRecurrente(
     if (diff <= 0) {
       return "¡Vas por buen camino! Mantén este ritmo de ahorro.";
     }
-    const extra = Math.round(resumen.ingresos * (diff / 100));
+    const extra = resumen.ingresos * (diff / 100);
     return `Necesitas ahorrar ${formatCurrency(extra)} más por mes para llegar al ${meta.objetivo}%`;
   }
 
