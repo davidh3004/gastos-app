@@ -550,9 +550,9 @@ function getResumenMes(mes) {
   return respuesta({
     ok: true,
     mes: mesActual,
-    ingresos: Math.round(ingresos),
-    gastos: Math.round(gastos),
-    flujo_neto: Math.round(ingresos - gastos),
+    ingresos,
+    gastos,
+    flujo_neto: ingresos - gastos,
     tasa_ahorro: ingresos > 0 ? Math.round((ingresos - gastos) / ingresos * 100) : 0
   });
 }
@@ -572,7 +572,7 @@ function getCategoriasMes(mes) {
   });
 
   const resultado = Object.entries(categorias)
-    .map(([nombre, total]) => ({ nombre, total: Math.round(total) }))
+    .map(([nombre, total]) => ({ nombre, total }))
     .sort((a, b) => b.total - a.total);
 
   return respuesta({ ok: true, mes: mesActual, categorias: resultado });
@@ -594,7 +594,7 @@ function getTransacciones(mes) {
       fecha,
       descripcion: r[2].toString(),
       tipo: r[3].toString(),
-      monto: Math.round(parseFloat(r[4]) || 0),
+      monto: parseFloat(r[4]) || 0,
       categoria: r[5].toString(),
       mes: r[6].toString()
     });
@@ -684,7 +684,7 @@ function getPatrimonio() {
     snapshots[fecha].push({
       cuenta: r[1].toString(),
       tipo: r[2].toString(),
-      saldo: Math.round(parseFloat(r[3]) || 0),
+      saldo: parseFloat(r[3]) || 0,
       notas: r[4].toString()
     });
   });
@@ -760,9 +760,9 @@ function getMesAMes() {
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([mes, vals]) => ({
       mes,
-      ingresos: Math.round(vals.ingresos),
-      gastos: Math.round(vals.gastos),
-      flujo: Math.round(vals.ingresos - vals.gastos)
+      ingresos: vals.ingresos,
+      gastos: vals.gastos,
+      flujo: vals.ingresos - vals.gastos
     }));
 
   return respuesta({ ok: true, meses: resultado });
