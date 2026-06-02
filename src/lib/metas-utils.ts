@@ -19,7 +19,10 @@ const MESES_ES = [
 ] as const;
 
 export function formatFechaLimite(fecha: string): string {
-  const parsed = new Date(fecha);
+  const soloFecha = fecha.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const parsed = soloFecha
+    ? new Date(+soloFecha[1], +soloFecha[2] - 1, +soloFecha[3])
+    : new Date(fecha);
   if (Number.isNaN(parsed.getTime())) {
     return fecha;
   }
@@ -75,7 +78,10 @@ export function getEstadoMeta(
   }
 
   const mesesProyeccion = calcularMesesProyeccion(meta, ahorroMensual);
-  const limite = new Date(meta.fecha_limite);
+  const _lf = meta.fecha_limite.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const limite = _lf
+    ? new Date(+_lf[1], +_lf[2] - 1, +_lf[3])
+    : new Date(meta.fecha_limite);
 
   if (
     !Number.isNaN(limite.getTime()) &&

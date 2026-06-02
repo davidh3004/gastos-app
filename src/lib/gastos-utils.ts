@@ -133,7 +133,12 @@ export function buildCategoriasFilas(
 }
 
 export function formatFechaTransaccion(fecha: string): string {
-  const parsed = new Date(fecha);
+  // Date-only strings (YYYY-MM-DD) must be parsed as local time, not UTC.
+  // new Date("2026-06-02") → UTC midnight → renders as June 1 in UTC-4.
+  const soloFecha = fecha.trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const parsed = soloFecha
+    ? new Date(+soloFecha[1], +soloFecha[2] - 1, +soloFecha[3])
+    : new Date(fecha);
   if (Number.isNaN(parsed.getTime())) {
     return fecha;
   }
